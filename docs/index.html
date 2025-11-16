@@ -10,20 +10,20 @@
 		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@700;800;900&display=swap" rel="stylesheet">
 
 		<!-- Styles -->
-		<link rel="stylesheet" href="../Sryle.css">
+		<link rel="stylesheet" href="./Sryle.css">
 	</head>
 	<body>
 		<header class="site-header" role="banner">
 			<div class="container header-inner">
-				<a class="logo" href="/" aria-label="SmartGym home">
+				<a class="logo" href="./index.html" aria-label="SmartGym home">
 					<!-- Use external SVG logo file for easier updates -->
-					<img src="../assets/img/logo.png" alt="SmartGym" class="logo-img">
+					<img src="./assets/img/logo.png" alt="SmartGym" class="logo-img">
 				</a>
 
 				<nav class="nav" role="navigation" aria-label="Primary">
-					<a class="nav-link" href="/exercises.html">Exercises</a>
-					<a class="nav-link" href="/nutrition.html">Nutrition</a>
-					<a class="nav-link" href="/chat.html">Chat</a>
+					<a class="nav-link" href="./Html/exercises.html">Exercises</a>
+					<a class="nav-link" href="./Html/nutrition.html">Nutrition</a>
+					<a class="nav-link" href="./Html/chat.html">Chat</a>
 					<button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">🌙</button>
 					<button class="burger" id="burger" aria-label="Open menu">☰</button>
 				</nav>
@@ -34,15 +34,15 @@
 			<section class="hero" aria-labelledby="hero-title">
 				<div class="container hero-inner">
 					<div class="hero-icon" aria-hidden="true">
-						<img src="../assets/img/logo2.png" alt="SmartGym logo" class="hero-logo">
+						<img src="./assets/img/logo2.png" alt="SmartGym logo" class="hero-logo">
 					</div>
 
 					<h1 id="hero-title">Welcome to <span class="accent">SmartGym</span></h1>
 					<p class="lead">Your personal fitness companion combining data-driven workouts, nutrition planning and instant coach chat — all in one premium app.</p>
 
 					<div class="hero-ctas">
-						<a class="btn btn-primary" href="/exercises.html">Start Workout</a>
-						<a class="btn btn-secondary" href="/nutrition.html">Calculate Nutrition</a>
+						<a class="btn btn-primary" href="./Html/exercises.html">Start Workout</a>
+						<a class="btn btn-secondary" href="./Html/nutrition.html">Calculate Nutrition</a>
 					</div>
 				</div>
 			</section>
@@ -82,6 +82,7 @@
 			</div>
 		</footer>
 
+		<script src="./Script.js"></script>
 		<script>
 			// small helpers: mobile menu and year
 			document.getElementById('year').textContent = new Date().getFullYear();
