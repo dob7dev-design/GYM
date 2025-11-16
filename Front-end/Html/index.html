@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+		<title>SmartGym — Personal Fitness Assistant</title>
+		<meta name="description" content="SmartGym — premium tech fitness. 100+ exercises, smart calorie & workout planning, coach chat." />
+
+		<!-- Google Fonts -->
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@700;800;900&display=swap" rel="stylesheet">
+
+		<!-- Styles -->
+		<link rel="stylesheet" href="../Sryle.css">
+	</head>
+	<body>
+		<header class="site-header" role="banner">
+			<div class="container header-inner">
+				<a class="logo" href="/" aria-label="SmartGym home">
+					<!-- Use external SVG logo file for easier updates -->
+					<img src="../assets/img/logo.png" alt="SmartGym" class="logo-img">
+				</a>
+
+				<nav class="nav" role="navigation" aria-label="Primary">
+					<a class="nav-link" href="/exercises.html">Exercises</a>
+					<a class="nav-link" href="/nutrition.html">Nutrition</a>
+					<a class="nav-link" href="/chat.html">Chat</a>
+					<button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">🌙</button>
+					<button class="burger" id="burger" aria-label="Open menu">☰</button>
+				</nav>
+			</div>
+		</header>
+
+		<main>
+			<section class="hero" aria-labelledby="hero-title">
+				<div class="container hero-inner">
+					<div class="hero-icon" aria-hidden="true">
+						<img src="../assets/img/logo2.png" alt="SmartGym logo" class="hero-logo">
+					</div>
+
+					<h1 id="hero-title">Welcome to <span class="accent">SmartGym</span></h1>
+					<p class="lead">Your personal fitness companion combining data-driven workouts, nutrition planning and instant coach chat — all in one premium app.</p>
+
+					<div class="hero-ctas">
+						<a class="btn btn-primary" href="/exercises.html">Start Workout</a>
+						<a class="btn btn-secondary" href="/nutrition.html">Calculate Nutrition</a>
+					</div>
+				</div>
+			</section>
+
+			<section class="features" aria-label="Features">
+				<div class="container features-grid">
+					<article class="card">
+						<div class="card-head">
+							<div class="icon-sq" aria-hidden="true">🏋️</div>
+							<h3 class="card-title">100+ Exercises</h3>
+						</div>
+						<p class="card-body">Detailed instructions, variations, and progress tracking for every exercise.</p>
+					</article>
+
+					<article class="card">
+						<div class="card-head">
+							<div class="icon-sq" aria-hidden="true">🧮</div>
+							<h3 class="card-title">Smart Calculator</h3>
+						</div>
+						<p class="card-body">Personalized nutrition and workout plans based on your goals and measurements.</p>
+					</article>
+
+					<article class="card">
+						<div class="card-head">
+							<div class="icon-sq" aria-hidden="true">💬</div>
+							<h3 class="card-title">Chat With a Coach</h3>
+						</div>
+						<p class="card-body">Get quick guidance, form checks, and motivation from real coaches.</p>
+					</article>
+				</div>
+			</section>
+		</main>
+
+		<footer class="site-footer">
+			<div class="container">
+				<p class="muted">© <span id="year"></span> SmartGym — All rights reserved.</p>
+			</div>
+		</footer>
+
+		<script>
+			// small helpers: mobile menu and year
+			document.getElementById('year').textContent = new Date().getFullYear();
+			const burger = document.getElementById('burger');
+			const nav = document.querySelector('.nav');
+			burger.addEventListener('click', ()=>{
+				nav.classList.toggle('open');
+			});
+
+			// theme toggle (prefers dark kept minimal)
+			const themeToggle = document.getElementById('themeToggle');
+			themeToggle.addEventListener('click', ()=>{
+				document.documentElement.classList.toggle('light');
+			});
+		</script>
+	</body>
+</html>
