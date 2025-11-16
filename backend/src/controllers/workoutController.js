@@ -6,7 +6,7 @@ exports.getAllWorkouts = async (req, res) => {
 		const workouts = await workoutModel.getWorkoutesByUserId(userId);
 		res.json(workouts);
 	} catch (err) {
-		console.log(err);
+		console.error('Server error: ',err.message);
 		res.status(500).send('Server error');
 	}
 };
@@ -19,7 +19,7 @@ exports.createWorkout = async (req, res) => {
 		res.status(201).json(newWorkout);
 
 	} catch (err) {
-		console.log(error);
+		console.error('Server error: ', err.message);
 		res.status(500).send('Server error');
 	}
 };

@@ -6,7 +6,7 @@ function authMiddleware ( req, res, next ) {
 	if ( !authHeader ) {
 		return res.status(401).json({error: 'Access denied. No token provided. '});
 	}
-	const okenPorts = authHeader.split(' ');
+	const tokenParts = authHeader.split(' ');
 	if ( tokenParts.length !== 2 || tokenParts[0] !== 'Bearer') {
 		return res.status(401).json({error: 'Invalid token format. Must be "Bearer <token>".'});
 	}
@@ -17,6 +17,7 @@ function authMiddleware ( req, res, next ) {
 		req.user = decoded.user;
 		next();
 	} catch ( err ) {
+		console.error('Invalid token: ', err.message);
 		res.status(401).json({error: 'Token is not valid.'});
 	}
 }
