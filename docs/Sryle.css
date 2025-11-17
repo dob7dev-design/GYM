@@ -126,3 +126,29 @@ html.light{background:linear-gradient(180deg,#fff,#f6f6f6);color:#111}
 /* Ensure root html background matches body to avoid white gaps when scrolling */
 html{background-color:var(--bg-900)}
 
+/* Small fixed Flappy Bird quick button (bottom-left) */
+.flappy-btn{
+	position:fixed;
+	left:16px;
+	bottom:16px;
+	width:44px;
+	height:44px;
+	display:inline-flex;
+	align-items:center;
+	justify-content:center;
+	background:#2f3336; /* neutral grey */
+	color:var(--text);
+	text-decoration:none;
+	border-radius:10px;
+	box-shadow:0 6px 18px rgba(0,0,0,0.6);
+	z-index:120;
+	transition:transform .12s ease, box-shadow .12s ease, background .12s ease;
+	font-size:20px;
+}
+.flappy-btn:hover{transform:translateY(-3px);box-shadow:0 10px 26px rgba(0,0,0,0.7);background:#3b3f42}
+.flappy-btn:focus{outline:2px solid var(--accent);outline-offset:3px}
+
+@media (max-width:480px){
+	.flappy-btn{left:12px;bottom:12px;width:40px;height:40px;font-size:18px}
+}
+
