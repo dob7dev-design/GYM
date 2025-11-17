@@ -50,8 +50,8 @@
             width: 30,
             height: 30,
             velocity: 0,
-            gravity: 0.5,
-            jump: -10
+            gravity: 0.35, /* slower fall */
+            jump: -9 /* slightly gentler jump */
         };
 
         let pipes = [];
@@ -59,7 +59,8 @@
         let gameRunning = true;
         const pipeWidth = 60;
         const pipeGap = 120;
-        const pipeDistance = 300;
+        const pipeDistance = 350; /* more spacing between pipes */
+        const pipeSpeed = 3; /* slower pipe movement */
 
         function createPipe() {
             const minHeight = 50;
@@ -85,7 +86,7 @@
             }
 
             pipes.forEach((pipe, index) => {
-                pipe.x -= 5;
+                pipe.x -= pipeSpeed;
 
                 if (pipe.x < -pipeWidth) {
                     pipes.splice(index, 1);
