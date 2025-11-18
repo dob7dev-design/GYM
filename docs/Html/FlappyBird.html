@@ -44,6 +44,10 @@
         const canvas = document.getElementById('gameCanvas');
         const ctx = canvas.getContext('2d');
 
+        // Bird image: placed inside a circular clip when drawing.
+        const birdImage = new Image();
+        birdImage.src = '../assets/img/omg.png'; // change this path to use your own image
+
         const bird = {
             x: 50,
             y: 300,
@@ -113,10 +117,27 @@
             ctx.fillStyle = '#87CEEB';
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-            ctx.fillStyle = '#FFD700';
+            // Draw bird as a circular image (clipped). Fallback to a filled circle if image not available.
+            const birdCenterX = bird.x + bird.width / 2;
+            const birdCenterY = bird.y + bird.height / 2;
+
+            ctx.save();
             ctx.beginPath();
-            ctx.arc(bird.x + bird.width / 2, bird.y + bird.height / 2, bird.width / 2, 0, Math.PI * 2);
-            ctx.fill();
+            ctx.arc(birdCenterX, birdCenterY, bird.width / 2, 0, Math.PI * 2);
+            ctx.closePath();
+            ctx.clip();
+
+            if (birdImage.complete && birdImage.naturalWidth !== 0) {
+                ctx.drawImage(birdImage, bird.x, bird.y, bird.width, bird.height);
+            } else {
+                // fallback: draw a colored circle
+                ctx.fillStyle = '#FFD700';
+                ctx.beginPath();
+                ctx.arc(birdCenterX, birdCenterY, bird.width / 2, 0, Math.PI * 2);
+                ctx.fill();
+            }
+
+            ctx.restore();
 
             ctx.fillStyle = '#228B22';
             pipes.forEach(pipe => {
